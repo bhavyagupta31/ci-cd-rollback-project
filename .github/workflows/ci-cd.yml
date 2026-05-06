@@ -25,3 +25,12 @@ jobs:
 
     - name: Build Docker Image
       run: docker build -t myapp:v1 .
+
+    - name: Health Check
+      run: |
+        echo "Checking application health"
+
+    - name: Rollback
+      if: failure()
+      run: |
+        echo "Rollback triggered"
